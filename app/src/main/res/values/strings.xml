@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ExoPlayerTest</string>
+    <string name="error_message">An error occurred, try again later</string>
+</resources>
