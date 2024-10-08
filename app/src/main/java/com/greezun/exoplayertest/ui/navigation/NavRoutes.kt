@@ -10,11 +10,4 @@ sealed interface NavRoutes {
 
     @Serializable
     data object VideoList : NavRoutes
-
-    @Serializable
-    data class VideoPlayer(
-        val id: Long
-    ) : NavRoutes
-
-
 }
