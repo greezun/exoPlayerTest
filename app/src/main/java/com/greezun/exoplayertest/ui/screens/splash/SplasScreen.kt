@@ -31,11 +31,18 @@ fun SplashScreen(
 
     LaunchedEffect(Unit) {
         viewModel.effect.onEach {
-            when(it){
-                SplashScreenContract.Effect.NavigateToList -> navHostController.navigate(NavRoutes.VideoList)
+            when (it) {
+                SplashScreenContract.Effect.NavigateToList -> navHostController.navigate(NavRoutes.VideoList) {
+                    popUpTo(navHostController.graph.id) {
+                        inclusive = true
+                    }
+                }
+
                 SplashScreenContract.Effect.ShowErrorToast -> {
-                    Toast.makeText(context,
-                        context.getString(R.string.error_message), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context,
+                        context.getString(R.string.error_message), Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }.collect()

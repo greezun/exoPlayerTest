@@ -11,5 +11,6 @@ data class VideoEntity(
     val height: Int,
     val duration: Int,
     val image: String,
+    val link: String,
     val userName: String
 )

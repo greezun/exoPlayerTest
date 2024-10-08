@@ -2,7 +2,6 @@ package com.greezun.exoplayertest.data.di
 
 import android.content.Context
 import com.greezun.exoplayertest.data.local.dao.VideoDao
-import com.greezun.exoplayertest.data.local.dao.VideoFileDao
 import com.greezun.exoplayertest.data.repositoryimpl.VideoRepositoryImpl
 import com.greezun.exoplayertest.data.tools.NetworkListener
 import com.greezun.exoplayertest.domain.VideoRepository
@@ -20,9 +19,8 @@ object RepositoryModule {
     @Singleton
     @Provides
     fun provideVideoRepository(
-        videoFileDao: VideoFileDao,
         videoDao: VideoDao
-    ): VideoRepository = VideoRepositoryImpl(videoDao, videoFileDao)
+    ): VideoRepository = VideoRepositoryImpl(videoDao)
 
     @Singleton
     @Provides

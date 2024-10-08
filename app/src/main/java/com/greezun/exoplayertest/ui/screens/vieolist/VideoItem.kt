@@ -13,18 +13,18 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.greezun.exoplayertest.R
-import com.greezun.exoplayertest.data.model.Video
+import com.greezun.exoplayertest.data.local.entity.VideoEntity
 import com.greezun.exoplayertest.ui.ext.toMinutesAndSeconds
 
 
 @Composable
 fun VideoItem(
-    video: Video,
-    onClick: (Long) -> Unit
+    video: VideoEntity,
+    onClick: () -> Unit
 ) {
 
     Column(
-        modifier = Modifier.clickable { onClick(video.id) },
+        modifier = Modifier.clickable { onClick() },
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         AsyncImage(
@@ -37,7 +37,7 @@ fun VideoItem(
             contentScale = ContentScale.Crop
         )
 
-        Text("Author: ${video.user.name}")
+        Text("Author: ${video.userName}")
         Text("Size: ${video.width}x${video.height}")
         Text("Duration: ${video.duration.toMinutesAndSeconds()} ")
     }

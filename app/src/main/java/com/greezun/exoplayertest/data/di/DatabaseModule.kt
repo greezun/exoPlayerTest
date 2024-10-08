@@ -3,7 +3,6 @@ package com.greezun.exoplayertest.data.di
 import android.content.Context
 import androidx.room.Room
 import com.greezun.exoplayertest.data.local.dao.VideoDao
-import com.greezun.exoplayertest.data.local.dao.VideoFileDao
 import com.greezun.exoplayertest.data.local.database.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -25,11 +24,6 @@ object DatabaseModule {
             "app_database"
         ).fallbackToDestructiveMigration()
          .build()
-    }
-
-    @Provides
-    fun provideVideoFileDao(database: AppDatabase): VideoFileDao {
-        return database.videoFileDao()
     }
 
     @Provides

@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun VideoList(
     state: VideoListContract.State,
-    onClick:(Long)->Unit
+    onClick:(Int)->Unit
 ) {
     Box(
         modifier = Modifier
@@ -49,8 +49,9 @@ fun VideoList(
             ) {
 
                 items(state.listVideo) { video ->
+                    val index = state.listVideo.indexOf(video)
                     VideoItem(video) {
-                        onClick(video.id)
+                        onClick(index)
                     }
                 }
             }
